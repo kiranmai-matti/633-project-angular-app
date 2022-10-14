@@ -1,0 +1,22 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  background-color: #0457c8;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  /* grid-gap: 48px; */
+  /* display: grid; */
+  /* grid-template-columns: 68px 86px 10fr 7fr 75px; */
+  /* grid-template-rows: 1fr; */
+  padding: 1rem 1rem;
+  position: relative;
+}
+.toolbar > .header-actions {
+  margin-left: auto;
+  /* padding-right: 100px; */
+}
+/* .header-actions>a{
+    padding-right: 2rem;
+    padding-left: 1rem;
+} */
