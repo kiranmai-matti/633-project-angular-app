@@ -1,22 +1,14 @@
-.toolbar {
-  display: flex;
-  align-items: center;
-  background-color: #0457c8;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  /* grid-gap: 48px; */
-  /* display: grid; */
-  /* grid-template-columns: 68px 86px 10fr 7fr 75px; */
-  /* grid-template-rows: 1fr; */
-  padding: 1rem 1rem;
-  position: relative;
+.fill-spacer {
+  flex: 1 1 auto;
 }
-.toolbar > .header-actions {
-  margin-left: auto;
-  /* padding-right: 100px; */
+.last-item {
+  margin-right: 1rem;
 }
-/* .header-actions>a{
-    padding-right: 2rem;
-    padding-left: 1rem;
-} */
+
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}

@@ -1,21 +1,25 @@
-<form [formGroup]="signupForm">
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Sign Up</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="signupForm" (ngSubmit)="signup()" class="form">
 
-  <div class="header">Create your account</div>
-
-  <mat-form-field>
-    <input matInput type="email" id="signup_email" placeholder="Email" autocomplete="new-password" formControlName="email" required>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput type="password" id="signup_password" placeholder="Password" autocomplete="new-password" formControlName="password" required>
-  </mat-form-field>
-
-  <div class="actions">
-    <button mat-flat-button color="accent" type="submit" (click)="signup()" [disabled]="!signupForm.valid">Sign up</button>
-    <div class="separator">
-      <span>OR</span>
-    </div>
-    <button mat-stroked-button routerLink="/login">Login</button>
-  </div>
-
-</form>
+      <mat-form-field floatLabel="never" class="form-element">
+        <input type="text" matInput placeholder="email" formControlName="email">
+        <mat-error *ngIf="signupForm.controls['email'].invalid">
+          {{getError('email')}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field floatLabel="never" class="form-element">
+        <input type="password" matInput placeholder="Password" formControlName="password">
+        <mat-error *ngIf="signupForm.controls['password'].invalid">
+          {{getError('password')}}
+        </mat-error>
+      </mat-form-field>
+      <div class="form-element">
+        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!signupForm.valid">Sign Up</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

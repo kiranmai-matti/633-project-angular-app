@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {HttpClient} from "@angular/common/http";
+import {Customer} from "../../models/customer";
 
 @Component({
   selector: 'app-sign-up',
@@ -7,15 +9,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
- signupForm!: FormGroup;
-  constructor(
-    private formBuilder: FormBuilder
-  ) {}
+  signupForm!: FormGroup;
+  private customer!: Customer;
+
+  constructor(private formBuilder: FormBuilder, private http:HttpClient) { }
 
   ngOnInit() {
+    this.createForm()
+  }
+
+  createForm() {
     this.signupForm = this.formBuilder.group({
-      email: ["", Validators.email],
-      password: [""],
+      'email': ['', [Validators.required, Validators.email]],
+      'password': ['', Validators.required],
     });
   }
 
@@ -23,12 +29,35 @@ export class SignUpComponent implements OnInit {
     return this.signupForm.controls;
   }
 
+  // @ts-ignore
+  getError(el: string) {
+    switch (el) {
+      case 'email':
+        // @ts-ignore
+        if (this.f['email'].hasError('required')) {
+          return 'Email required';
+        } else if(this.f['email'].hasError('email')) {
+          return 'Invalid email';
+        }
+        break;
+      case 'password':
+        // @ts-ignore
+        if (this.f['password'].hasError('required')) {
+          return 'Password required';
+        }
+        break;
+      default:
+        return '';
+    }
+  }
+
   signup() {
-    // this.authService
-    //   .signup({
-    //     email: this.f.email.value,
-    //     password: this.f.password.value,
-    //   })
-    //   .subscribe(() => this.router.navigate([this.authService.CONFIRM_PATH]));
+    this.http.post<number>('http://localhost:8080/api/customers/register', {'customer': this.customer}).subscribe((customerId:number) => {
+    if(customerId !== undefined) {
+      alert(`You have successfully registered with CustomerId : ${customerId}`);
+    }
+    }, error => {
+      alert('Error in registering you..Please try again..!');
+    })
   }
 }

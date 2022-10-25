@@ -1,1 +1,39 @@
-<p>dashboard works!</p>
+<!--<div class="container">
+  <mat-card class="example-card" *ngFor="let p of products; let i = index" (click)="onProductClicked(p.prdId)">
+    <mat-card-header>
+      <img
+        [src]="p.prdImgUrl"
+        mat-card-avatar />
+      <mat-card-title>{{p.prdName}} - {{p.prdCode}}</mat-card-title>
+    </mat-card-header>
+     <mat-card-content>
+       <mat-card-subtitle>{{p.prdDesc}}</mat-card-subtitle>
+       <mat-card-title>{{ p.prdPrice | currency}}</mat-card-title>
+       <a target="_blank" rel="noopener noreferrer" [href]="p.prdImgUrl">See full Image</a>
+     </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button (click)="onAddToCartClicked(p.prdId)">Add to Cart</button>
+      <button mat-button (click)="onProductClicked(p.prdId)">View More Details</button>
+    </mat-card-actions>
+  </mat-card>
+</div>-->
+
+<div fxLayout="row" >
+  <mat-card fxLayout="column" fxFlex="80%" class="center space-top" *ngFor="let p of products">
+    <mat-card-content fxLayout.gt-sm="row">
+      <div fxLayout.gt-sm="column" fxFlex.gt-sm="40%">
+        <img mat-card-image [src]="p.prdImgUrl" alt="product image">
+      </div>
+      <div fxLayout.gt-sm="column" fxFlex.gt-sm="50%" class="gutter">
+        <mat-card-subtitle><b>{{p.prdName}} - {{p.prdCode}}</b></mat-card-subtitle>
+        <mat-card-subtitle>{{p.prdDesc}}</mat-card-subtitle>
+        <mat-card-title>{{ p.prdPrice | currency}}</mat-card-title>
+        <a target="_blank" rel="noopener noreferrer" [href]="p.prdImgUrl">See full Image</a>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button (click)="onAddToCartClicked(p.prdId)">Add to Cart</button>
+      <button mat-button (click)="onProductClicked(p.prdId)">View More Details</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

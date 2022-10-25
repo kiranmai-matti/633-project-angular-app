@@ -1,4 +1,4 @@
-<div class="toolbar" role="banner">
+<!--<div class="toolbar" role="banner">
   <div class="heaer-title">
     <a mat-button [routerLink]="['/']" routerLinkActive="active">
       <mat-icon>store</mat-icon>Electronics Store
@@ -7,29 +7,54 @@
   <div class="left-header">
     <div *ngIf="!firstName" class="text-center">
       <button mat-button>Account</button>
-      <!-- You are not Authenticated!! Please <a routerLink="/login">Login</a> -->
+     You are not Authenticated!! Please <a routerLink="/login">Login</a>
     </div>
     <div *ngIf="firstName" class="text-center">
-      <!-- Hi, {{firstName}}
+       Hi, {{firstName}}
        <button mat-button>Hi, {{firstName}}</button>
-      <button mat-button>My Account</button> -->
+      <button mat-button>My Account</button>
     </div>
     <div class="cart-icon">
         <a mat-button mat-icon-button  [routerLink]="['/cart']" routerLinkActive="active">
         <mat-icon>shopping_cart</mat-icon>Cart
         </a>
     </div>
-  </div>
-  <!-- <div class="header-actions">
+  </div> <div class="header-actions">
         <a mat-button [routerLink]="['/register']" routerLinkActive="active">Create Account</a>
         <a mat-button  [routerLink]="['/login']" routerLinkActive="active">Sign In</a>
         <a mat-button mat-icon-button  [routerLink]="['/cart']" routerLinkActive="active">
         <mat-icon>shopping_cart</mat-icon>Cart
         </a>
-    </div> -->
+    </div>
 </div>
 <div>
+</div>-->
 
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/home">
+      <mat-icon>store</mat-icon>Electronics Store
+  </button>
+  <span class="fill-spacer"></span>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/login">
+      Sign In
+    </button>
+    <button mat-menu-item routerLink="/register">
+      Sign Up
+    </button>
+  </mat-menu>
 
+  <mat-menu #anotherMenu="matMenu">
+    <button mat-menu-item (click)="logout($event)">
+      Logout
+    </button>
+  </mat-menu>
+  <span *ngIf="isLoggedIn">{{firstName}} {{isLoggedIn}}</span>
+  <button mat-icon-button [matMenuTriggerFor]="isLoggedIn ? anotherMenu : menu " aria-label="Example icon-button with heart icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <button mat-icon-button  routerLink="/cart" routerLinkActive="active" class="last-item">
+    <mat-icon >shopping_cart</mat-icon>Cart {{count}}
+  </button>
+</mat-toolbar>
 
-</div>

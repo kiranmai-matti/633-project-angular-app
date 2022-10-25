@@ -18,6 +18,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MatSelectModule} from "@angular/material/select";
+import {MatCardModule} from "@angular/material/card";
+import {MatInputModule} from "@angular/material/input";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SignInComponent,
     CartComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AppRoutingModule,
     MatListModule,
     MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatToolbarModule,
     MatIconModule,FormsModule,ReactiveFormsModule,MatFormFieldModule,HttpClientModule,BrowserAnimationsModule
   ],
   providers: [],
