@@ -14,6 +14,7 @@ import {MatMenu, MatMenuTrigger} from "@angular/material/menu";
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   firstName:string ="Test User";
+  lastName:string ="Test User";
   count: number = 0;
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
   constructor(private router: Router, private dataService: DataService) { }
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
     this.dataService.getCustomer().subscribe((cust: Customer) => {
       if(cust && cust.firstName) {
         this.firstName = cust.firstName;
+        this.lastName=cust.lastName;
         this.isLoggedIn = true;
       }
     })
@@ -38,5 +40,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/home']);
     this.firstName = '';
     this.isLoggedIn = false;
+  }
+
+  myaccount($event: any) {
+
   }
 }
