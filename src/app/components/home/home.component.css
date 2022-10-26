@@ -8,10 +8,9 @@
   color: black;
 }
 .container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
   margin-top: 5%;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 mat-card {
   cursor: pointer;

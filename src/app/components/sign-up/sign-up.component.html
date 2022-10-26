@@ -6,12 +6,32 @@
     <form [formGroup]="signupForm" (ngSubmit)="signup()" class="form">
 
       <mat-form-field floatLabel="never" class="form-element">
+        <input type="text" matInput placeholder="firstName" formControlName="firstName">
+        <mat-error *ngIf="signupForm.controls['firstName'].invalid">
+          {{getError('firstName')}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field floatLabel="never" class="form-element">
+        <input type="text" matInput placeholder="lastName" formControlName="lastName">
+        <mat-error *ngIf="signupForm.controls['lastName'].invalid">
+          {{getError('lastName')}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field floatLabel="never" class="form-element">
+        <input type="number" matInput placeholder="mobileNo" formControlName="mobileNo">
+        <mat-error *ngIf="signupForm.controls['mobileNo'].invalid">
+          {{getError('mobileNo')}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field floatLabel="never" class="form-element">
         <input type="text" matInput placeholder="email" formControlName="email">
         <mat-error *ngIf="signupForm.controls['email'].invalid">
           {{getError('email')}}
         </mat-error>
       </mat-form-field>
-      <mat-form-field floatLabel="never" class="form-element">
+      <mat-form-field class="form-element">
         <input type="password" matInput placeholder="Password" formControlName="password">
         <mat-error *ngIf="signupForm.controls['password'].invalid">
           {{getError('password')}}

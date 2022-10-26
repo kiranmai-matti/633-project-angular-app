@@ -15,33 +15,7 @@ export class DashboardComponent implements OnInit {
      this.products = [...prod];
     }
   }
-  products: Product[] = [/*{
-    prdId:902,
-    prdPrice:6495282,
-    prdName: 'Apple Watch Series 8 GPS + Cellular 45mm Graphite Stainless Steel Case with Graphite Milanese Loop - Graphite',
-    prdImgUrl:'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6495/6495282_sd.jpg',
-    prdDesc:'Apple Watch Series 8 features advanced health sensors and apps, so you can take an ECG¹, measure heart rate¹ and blood oxygen², and track temperature changes³ for advanced insights into your menstrual cycle⁴. And with Crash Detection, sleep stages tracking, and advanced workout metrics, it helps you stay active, healthy, safe, and connected. See Dimension section below for band sizing information',
-    prdCode:790,
-    categoryId: 205
-  },
-    {
-      prdId:902,
-      prdPrice:6495282,
-      prdName: 'Apple Watch Series 8 GPS + Cellular 45mm Graphite Stainless Steel Case with Graphite Milanese Loop - Graphite',
-      prdImgUrl:'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6495/6495282_sd.jpg',
-      prdDesc:'Apple Watch Series 8 features advanced health sensors and apps, so you can take an ECG¹, measure heart rate¹ and blood oxygen², and track temperature changes³ for advanced insights into your menstrual cycle⁴. And with Crash Detection, sleep stages tracking, and advanced workout metrics, it helps you stay active, healthy, safe, and connected. See Dimension section below for band sizing information',
-      prdCode:790,
-      categoryId: 205
-    },
-    {
-      prdId:902,
-      prdPrice:6495282,
-      prdName: 'Apple Watch Series 8 GPS + Cellular 45mm Graphite Stainless Steel Case with Graphite Milanese Loop - Graphite',
-      prdImgUrl:'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6495/6495282_sd.jpg',
-      prdDesc:'Apple Watch Series 8 features advanced health sensors and apps, so you can take an ECG¹, measure heart rate¹ and blood oxygen², and track temperature changes³ for advanced insights into your menstrual cycle⁴. And with Crash Detection, sleep stages tracking, and advanced workout metrics, it helps you stay active, healthy, safe, and connected. See Dimension section below for band sizing information',
-      prdCode:790,
-      categoryId: 205
-    }*/];
+  products: Product[] = [];
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private dataService: DataService, private router: Router) { }
 

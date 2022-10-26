@@ -1,0 +1,32 @@
+<div fxLayout="row" class="row" *ngIf="product && product.prdId; else noProductFound" >
+  <mat-card fxLayout="column" fxFlex="80%" class="center space-top"  (click)="onProductClicked(product?.prdId)">
+    <div class="title">
+      <b>{{product?.prdName}}</b>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="container">
+      <div class="grid-item">
+        <img [src]="product?.prdImgUrl" alt="product image">
+        <div class="desc">
+          <div><p><b>Description: </b></p>{{product?.prdDesc}}</div>
+          <div class="price"> <mat-card-title style="font-weight: 500;padding-top: 20px;">Price: ${{ product?.prdPrice }}</mat-card-title></div>
+          <mat-card-actions>
+            <button mat-button style="background-color: #ffe000;margin-left: 5px;" (click)="onAddToCartClicked()">Add to Cart</button>
+          </mat-card-actions>
+        </div>
+      </div>
+      <br/><br/>
+    </div>
+  </mat-card>
+  <mat-divider></mat-divider>
+</div>
+<ng-template #noProductFound>
+  <mat-card fxLayout="column" fxFlex="80%" class="center space-top"  (click)="onProductClicked(product?.prdId)">
+    <mat-card-content fxLayout.gt-sm="row">
+        <mat-card-title>The Product currently you are trying to look is not available.. ! Please click the below button to explore other products</mat-card-title>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button routerLink="/home">Home</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
