@@ -12,14 +12,7 @@ const BASE_URL = 'http://localhost:8080/api/';
 })
 export class DataService {
   cartProductsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
-  currentCustomerSubject: BehaviorSubject<Customer> = new BehaviorSubject<Customer>({
-    billingAddr: "",
-    email: "",
-    firstName: "",
-    lastName: "",
-    mobileNo: 0,
-    shippingAddr: ""
-  });
+  currentCustomerSubject: BehaviorSubject<Customer> = new BehaviorSubject<Customer>(<Customer>{});
   productsSubject: Subject<Product[]> = new Subject<Product[]>();
   cartProductsCountSubject: Subject<number> = new Subject<number>();
   categories: Category[] = [];

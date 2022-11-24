@@ -1,10 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { Router } from "@angular/router";
+import {Router} from "@angular/router";
+import {MatMenuTrigger} from "@angular/material/menu";
+
 import {DataService} from "../../services/data.service";
-import {tap} from "rxjs";
-import {Product} from "../../models/product";
 import {Customer} from "../../models/customer";
-import {MatMenu, MatMenuTrigger} from "@angular/material/menu";
 
 @Component({
   selector: 'app-header',
@@ -13,27 +12,29 @@ import {MatMenu, MatMenuTrigger} from "@angular/material/menu";
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
-  firstName:string ="Test User";
-  lastName:string ="Test User";
+  firstName: string = "";
+  lastName: string = "";
   count: number = 0;
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
-  constructor(private router: Router, private dataService: DataService) { }
+
+  constructor(private router: Router, private dataService: DataService) {
+  }
 
   ngOnInit(): void {
     this.dataService.getCartProductsCount().subscribe(c => {
       this.count = c;
     });
     this.dataService.getCustomer().subscribe((cust: Customer) => {
-      if(cust && cust.firstName) {
+      if (cust && cust.firstName && cust.lastName) {
         this.firstName = cust.firstName;
-        this.lastName=cust.lastName;
+        this.lastName = cust.lastName;
         this.isLoggedIn = true;
       }
     })
   }
 
-  logout(event: any) {
-    if(this.trigger) {
+  logout(): void {
+    if (this.trigger) {
       this.trigger.closeMenu();
     }
     this.dataService.setCustomer(undefined);
@@ -42,7 +43,7 @@ export class HeaderComponent implements OnInit {
     this.isLoggedIn = false;
   }
 
-  myaccount($event: any) {
-
+  myAccount(): void {
+    this.router.navigate(['/account']);
   }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from "@angular/common/http";
 import {Customer} from "../../models/customer";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +13,8 @@ export class SignUpComponent implements OnInit {
   signupForm!: FormGroup;
   private customer!: Customer;
 
-  constructor(private formBuilder: FormBuilder, private http:HttpClient) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+  }
 
   ngOnInit() {
     this.createForm()
@@ -55,12 +57,18 @@ export class SignUpComponent implements OnInit {
   }
 
   signup() {
-    this.http.post<number>('http://localhost:8080/api/customers/register', {'customer': this.customer}).subscribe((customerId:number) => {
-    if(customerId !== undefined) {
-      alert(`You have successfully registered with CustomerId : ${customerId}`);
-    }
-    }, error => {
-      alert('Error in registering you..Please try again..!');
-    })
+    console.log("cust", this.signupForm.value)
+    this.customer = this.signupForm.value
+    console.log("cust", this.signupForm.value)
+    this.http.post<number>('http://localhost:8080/api/customers/register',
+      {...this.customer})
+      .subscribe((customerId: number) => {
+        if (customerId !== undefined) {
+          alert(`You have successfully registered with CustomerId : ${customerId} , You will be redirected to Sign up page to login to your account`);
+          this.router.navigate(['/login']);
+        }
+      }, error => {
+        alert('Error in registering you..Please try again..!');
+      })
   }
 }

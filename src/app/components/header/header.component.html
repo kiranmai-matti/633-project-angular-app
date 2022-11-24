@@ -14,15 +14,16 @@
   </mat-menu>
 
   <mat-menu #anotherMenu="matMenu">
-    <button mat-menu-item (click)="myaccount($event)">My Account</button>
-    <button mat-menu-item (click)="logout($event)">Logout</button>
+    <button mat-menu-item (click)="myAccount()">My Account</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
   </mat-menu>
   <span *ngIf="isLoggedIn">Welcome {{firstName}} {{lastName}}</span>
-  <button mat-icon-button [matMenuTriggerFor]="isLoggedIn ? anotherMenu : menu " aria-label="Example icon-button with heart icon">
+  <button mat-icon-button [matMenuTriggerFor]="isLoggedIn ? anotherMenu : menu " aria-label="Account">
     <mat-icon>account_circle</mat-icon>
   </button>
-  <button mat-icon-button  routerLink="/cart" routerLinkActive="active" class="last-item">
-    <mat-icon >shopping_cart</mat-icon>Cart {{count}}
+  <button mat-icon-button class="last-item">
+    <mat-icon>shopping_cart</mat-icon>
+    Cart {{count}}
   </button>
 </mat-toolbar>
 
