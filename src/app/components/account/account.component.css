@@ -1,0 +1,45 @@
+
+:host {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+p {
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+.example-card {
+  max-width: 450px;
+  width: 450px;
+  margin: 10px;
+  height: 350px;
+}
+
+mat-card-subtitle {
+  font-size: 18px;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: center;
+  color: #3f51b5;
+  font-size: 25px !important;
+}
+
+mat-card-header {
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+mat-card-content {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

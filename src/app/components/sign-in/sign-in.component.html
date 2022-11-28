@@ -6,13 +6,13 @@
     <form [formGroup]="formGroup" (ngSubmit)="login()" class="form">
 
       <mat-form-field floatLabel="never" class="form-element">
-        <input type="text" matInput placeholder="Username" formControlName="username">
+        <input data-cy="username" type="text" matInput placeholder="Username" formControlName="username">
         <mat-error *ngIf="formGroup.controls['username'].invalid">
           {{getError('username')}}
         </mat-error>
       </mat-form-field>
       <mat-form-field floatLabel="never" class="form-element">
-        <input type="password" matInput placeholder="Password" formControlName="password">
+        <input data-cy="password" type="password" matInput placeholder="Password" formControlName="password">
         <mat-error *ngIf="formGroup.controls['password'].invalid">
           {{getError('password')}}
         </mat-error>

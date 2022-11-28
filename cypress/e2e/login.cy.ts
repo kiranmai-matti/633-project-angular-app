@@ -8,7 +8,7 @@ before(() => {
 })
 describe('Cypress Test for Login', () => {
   /* ==== Test Created with Cypress Studio ==== */
-  it('Customer Login', function () {
+  it('Customer Successful Login', function () {
     /* ==== Generated with Cypress Studio ==== */
     cy.get('.mat-menu-trigger > .mat-button-wrapper > .mat-icon').click();
     cy.get('[routerlink="/login"]')
@@ -19,8 +19,8 @@ describe('Cypress Test for Login', () => {
       .should('have.class', 'mat-card-title')
       .should('have.text', 'Sign In');
     cy.get('div.form-element > .mat-focus-indicator').should('be.disabled');
-    cy.get('#mat-input-0').type('bestbuy@gmail.com');
-    cy.get('#mat-input-1').type('1234');
+    cy.get('[data-cy="username"]').type('bestbuy@gmail.com');
+    cy.get('[data-cy="password"]').type('1234');
     cy.get('div.form-element > .mat-focus-indicator').should('be.enabled');
     cy.get('div.form-element > .mat-focus-indicator > .mat-button-wrapper').should('have.text', 'Login');
     cy.get('div.form-element > .mat-focus-indicator').click();
@@ -35,6 +35,24 @@ describe('Cypress Test for Login', () => {
     cy.get('.mat-menu-trigger > .mat-button-wrapper > .mat-icon').click();
     cy.get('.mat-menu-content > :nth-child(2)').should('have.text', 'Logout');
     cy.get('.mat-menu-content > :nth-child(2)').click();
+    /* ==== End Cypress Studio ==== */
+  });
+  it('Customer Unsuccessful Login', function () {
+    /* ==== Generated with Cypress Studio ==== */
+    cy.get('.mat-menu-trigger > .mat-button-wrapper > .mat-icon').click();
+    cy.get('[routerlink="/login"]')
+      .should('have.text', ' Sign In ')
+      .should('have.attr', 'routerlink', '/login');
+    cy.get('[routerlink="/login"]').click();
+    cy.get('.mat-card-title')
+      .should('have.class', 'mat-card-title')
+      .should('have.text', 'Sign In');
+    cy.get('div.form-element > .mat-focus-indicator').should('be.disabled');
+    cy.get('[data-cy="username"]').type('bestbuy@gmail.com');
+    cy.get('[data-cy="password"]').type('1');
+    cy.get('div.form-element > .mat-focus-indicator').should('be.enabled');
+    cy.get('div.form-element > .mat-focus-indicator > .mat-button-wrapper').should('have.text', 'Login');
+    cy.get('div.form-element > .mat-focus-indicator').click();
     /* ==== End Cypress Studio ==== */
   });
 })

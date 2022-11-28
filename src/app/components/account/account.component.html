@@ -1,0 +1,18 @@
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Customer Account Details</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+  <p><b>Name:</b> {{customer?.firstName}} {{customer?.lastName}}</p>
+    <p><b>Mobile:</b> {{customer?.mobileNo}}</p>
+    <p><b>Email:</b> {{customer?.email}}</p>
+    <mat-divider></mat-divider>
+    <b>Addresses</b>
+    <p><b>Billing Address:</b> {{customer?.billingAddr?.addr1}},{{customer?.billingAddr?.addr2}},
+    {{customer?.billingAddr?.city}},{{customer?.billingAddr?.state}}-{{customer?.billingAddr?.zipcode}},{{customer?.billingAddr?.country}}
+    <p><b>Shipping Address:</b> {{customer?.shippingAddr?.addr1}},{{customer?.shippingAddr?.addr2}},
+      {{customer?.shippingAddr?.city}},{{customer?.shippingAddr?.state}}-{{customer?.shippingAddr?.zipcode}},{{customer?.shippingAddr?.country}}
+  </mat-card-content>
+</mat-card>
+

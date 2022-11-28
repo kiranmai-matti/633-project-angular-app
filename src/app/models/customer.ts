@@ -3,6 +3,15 @@ export interface Customer {
   lastName: string;
   email: string;
   mobileNo: number;
-  billingAddr: string;
-  shippingAddr: string;
+  billingAddr: Address;
+  shippingAddr: Address;
+}
+export interface Address{
+  addr1: string;
+  addr2: string;
+  city: string;
+  state: string;
+  zipcode: number;
+  country: string;
+
 }
